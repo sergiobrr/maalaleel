@@ -1,0 +1,97 @@
+    <div class="jumbotron">
+    <h3 ng-hide="displayEbay" class="animate-show">ISBN Monitor</h3>
+		<img ng-hide="displayEbay" class="lead animate-show" src="static/images/books-icon.png" alt="logo"><br>
+    <p ng-hide="displayEbay" class="animate-show">
+      Per il momento cerco solo su ebay
+    </p>
+		<div class="row">
+			<div class="col col-md-10">
+				<form ng-submit="vm.lookup()" class="form-horizzontal">
+					<fieldset>
+						<div class="form-group">
+							<label for="inputIsbn" class="col-md-2 control-label">ISBN da cercare</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" id="inputIsbn" ng-model="vm.isbn" placeholder="ISBN number">
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+			<div class="col-md-2">
+				<button class="btn btn-success pull-left" ng-click="vm.displayFilter()">
+					<span class="glyphicon glyphicon-tags"></span> {{vm.filterMessage}}
+				</button>
+			</div>
+		</div>       
+		<div ng-show="vm.useFilter" class="row" ng-cloak>
+			<hr>
+			<div class="col-md-10 col-md-offset-1">
+				<div class="row">
+					<form class="form-inline">
+						<div class="row">
+							<div class="form-group col-md-4">
+								<div class="input-group input-group-sm">
+									<span class="input-group-addon">Prezzo Min.</span>
+									<input type="number" step="0.5" class="form-control" ng-model="vm.itemFilter.MinPrice" placeholder="0.00">
+									<span class="input-group-addon">€</span>
+								</div>
+							</div>
+							<div class="form-group col-md-4">
+								<div class="input-group input-group-sm">
+									<span class="input-group-addon">Prezzo Max.</span>
+									<input type="number" step="0.5" class="form-control" ng-model="vm.itemFilter.MaxPrice" placeholder="{{vm.itemFilter.MinPrice + 0.5}}">
+									<span class="input-group-addon">€</span>
+								</div>
+							</div>
+							<div class="form-group col-md-4">
+								<label class="radio-inline">
+									<input type="radio" name="conditionRadioOptions" ng-click="vm.condNew()"> Nuovo
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="conditionRadioOptions" ng-click="vm.condUsed()"> Usato
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="conditionRadioOptions" ng-click="vm.condUnspec()"> Non Specificato
+								</label>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="form-inline">
+								<div class="form-group col-md-4">
+									<label class="radio-inline">Venditore:</label>
+									<label class="radio-inline">
+										<input type="radio" name="sellerRadioOptions" ng-click="vm.sellerPriv()"> Privato
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="sellerRadioOptions" ng-click="vm.sellerBis()"> Business
+									</label>
+								</div>
+								<div class="form-group col-md-8">
+									<label class="radio-inline">Tipo Vendita:</label>
+									<label class="radio-inline">
+										<input type="radio" name="sellingRadioOptions" ng-click="vm.sellingAuct()"> Asta
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="sellingRadioOptions" ng-click="vm.sellingAuctBIN()"> Asta + Buy Now
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="sellingRadioOptions" ng-click="vm.sellingClass()"> Classified
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="sellingRadioOptions" ng-click="vm.sellingFix()"> Prezzo Fisso
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="sellingRadioOptions" ng-click="vm.sellingAll()"> Tutti
+									</label>								
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<button class="btn btn-lg btn-success my-btn" ng-click="vm.lookup()">
+			Cerca! 
+			<span class="glyphicon glyphicon-ok"></span>
+		</button>

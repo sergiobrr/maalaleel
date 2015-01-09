@@ -1,0 +1,22 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/home/sergio/virt/keenan/src/app/static/bower_components/jquery/src/manipulation.js",
+        "/home/sergio/virt/keenan/src/app/static/bower_components/jquery/src/event.js",
+        "home/sergio/virt/keenan/src/app/static/bower_components/jquery/src/attributes/support",
+        "/home/sergio/virt/keenan/src/app/static/bower_components/jquery/src/attributes/prop.js",
+        "/home/sergio/virt/keenan/src/app/static/bower_components/jquery/src/attributes/classes.js",
+        "/home/sergio/virt/keenan/src/app/static/bower_components/jquery/src/attributes/val.js",
+        "/home/sergio/virt/keenan/src/app/static/bower_components/jquery/src/attributes/attr.js",
+        "/home/sergio/virt/keenan/src/app/static/bower_components/jquery/src/attributes/support.js",
+        "/home/sergio/virt/keenan/src/app/static/bower_components/jquery/src/ajax/script.js",
+        "/home/sergio/virt/keenan/src/app/static/bower_components/jquery/src/var/indexOf.js",
+        "/home/sergio/virt/keenan/src/app/static/bower_components/jquery/src/ajax/load.js",
+        "/home/sergio/virt/keenan/src/app/static/bower_components/jquery/src/ajax/jsonp.js",
+        "home/sergio/virt/keenan/src/app/static/bower_components/jquery/src/effects",
+        "/home/sergio/virt/keenan/src/app/static/bower_components/jquery/src/ajax/parseJSON.js",
+        "/home/sergio/virt/keenan/src/app/static/bower_components/bootstrap/js/tab.js",
+        "/home/sergio/virt/keenan/src/app/static/app/app.js",
+        "/home/sergio/virt/keenan/src/app/static/app/directives/search-directive.js",
+        "home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/data/Data"
+    ]
+}

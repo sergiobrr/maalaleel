@@ -1,0 +1,21 @@
+Cerberus==0.7.2
+-e git+https://github.com/nicolaiarocci/eve.git@d11357a04b84e7904b89bb957f0f9636a2e38ffd#egg=Eve-origin/develop
+Events==0.2.1
+Flask==0.10.1
+Flask-PyMongo==0.3.0
+Flask-Script==2.0.5
+Jinja2==2.7.3
+MarkupSafe==0.23
+PyYAML==3.11
+Werkzeug==0.9.6
+argparse==1.2.1
+ebaysdk==2.1.0
+gevent==1.0.1
+greenlet==0.4.5
+grequests==0.2.0
+itsdangerous==0.24
+lxml==3.4.1
+pymongo==2.7.1
+requests==2.5.1
+simplejson==3.5.3
+wsgiref==0.1.2

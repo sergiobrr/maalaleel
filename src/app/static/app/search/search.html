@@ -1,0 +1,48 @@
+<liti-jumbotron></liti-jumbotron>
+
+<span us-spinner spinner-key="spinner-1"></span>
+
+<div ng-controller="SearchController as vm">
+	<div ng-show="vm.showErrors" class="alert alert-dismissable alert-warning">
+		<button type="button" class="close" data-dismiss="alert" ng-click="vm.hideErrors()">×</button>
+		<h4>Attenzione!</h4>
+		<p>Qualcosa è andato storto. Il server ha risposto un codice {{vm.errors}}</p>
+	</div>
+	<div class="row">
+		<div class="col-md-3 col-md-offset-1" ng-cloack>
+			<span us-spinner spinner-key="spinner-2"></span>
+			<button ng-click="vm.toggleSaved()" class="btn btn-danger btn-block">{{vm.btnMessage}}</button>
+			<div class="list-group animate-show" ng-show="vm.showSaved">
+				<liti-search ng-repeat="search in vm.savedSearches" search="search"></liti-search>
+			</div>
+		</div>
+		<div class="col-md-7">
+			<div ng-show="displayEbay" class="row-marketing animate-show">
+				<div>		
+					<button ng-click="vm.saveSearch()" class="btn btn-default btn-lg btn-block btn-primary">
+						<span class="glyphicon glyphicon-save"></span>
+						Ricorda la ricerca
+					</button>
+					{{vm.paginationOutput.totalEntries}} risultati totali.
+					<ul class="pagination">
+						<li ng-class="{ disabled : vm.currentPage == 1}">
+							<a href="" ng-click="vm.goToPage(vm.currentPage - 1)">«</a>
+						</li>
+						<li ng-repeat="page in vm.getNumber(vm.paginationOutput.totalPages) track by $index" ng-class="{ active : $index+1 == 1, active : vm.currentPage == $index+1 }">
+							<a href="" ng-click="vm.goToPage($index+1)">
+								{{$index+1}}
+							</a>
+						</li>
+						<li  ng-class="{ disabled : vm.currentPage == 99}">
+							<a href="" ng-click="vm.goToPage(vm.currentPage + 1)">»</a>
+						</li>
+					</ul>
+					<div class="list-group">
+						<liti-ebay-category ng-repeat="(categoryName, category) in vm.items" categoryName="categoryName" category="category">
+						</liti-ebay-category>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
