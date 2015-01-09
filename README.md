@@ -1,2 +1,0 @@
-# maalaleel
-search prizes
