@@ -18,7 +18,7 @@ if os.environ.get('PORT'):
     MONGO_DBNAME = 'isbn_db'
 
     # also, correctly set the API entry point
-    SERVER_NAME = 'eve-demo.herokuapp.com'
+    SERVER_NAME = 'shop.smimemail.net'
 else:
     # Running on local machine. Let's just use the local mongod instance.
     MONGO_HOST = '192.168.1.139'
@@ -68,4 +68,4 @@ DOMAIN = {
     'ebayitems': ebayitems
 }
 
-EBAY_APPID = 'SergioBr-c17f-444c-9e45-efb0f673196e'
+EBAY_APPID = os.environ['EBAY_APP_ID']
