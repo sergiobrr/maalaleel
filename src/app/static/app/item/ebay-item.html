@@ -1,16 +1,23 @@
-								<div>
+								<div ng-model="item" ng-if="item.ebay" class="list-group-item">
 									<a href="{{item.viewItemURL}}">
 										<h4>{{item.title}}</h4>
 									</a>
+									<h5><p>{{item.primaryCategory.categoryName}}</p></h5>
 									<div class="row">
 										<div class="col-md-3">
 											<img src="{{item.galleryURL}}" class="img-responsive img-rounded">
 										</div>
 										<div class="col-md-6">
-											<h5>Prezzo: {{item.sellingStatus.currentPrice.value}} {{item.sellingStatus.currentPrice._currencyId}}</h5>
-											<h5>Location: {{item.location}}</h5>
-											<h5>Stato: {{item.condition.conditionDisplayName}}</h5>
-											<h5>Categoria: {{item.primaryCategory.categoryName}} - {{item.primaryCategory.categoryId}}</h5>
+											<li>
+												<p>Prezzo:  {{item.sellingStatus.currentPrice._currencyId}} {{item.sellingStatus.currentPrice.value}}</p>
+											</li>
+											<li>
+												<p>Location: {{item.location}}</p>
+											</li>
+											<li>
+												<p>Stato: {{item.condition.conditionDisplayName}}</p>
+											</li>
+											<hr>
 										</div>
 										<div class="col-md-3">
 											<div class="checkbox">
@@ -19,7 +26,45 @@
 													<span class="glyphicon glyphicon-eye-open"></span>
 													Tieni d'occhio
 												</label>
-											</div>						
+											</div>
+											<img class="img-responsive img-rounded" src="static/images/Now_144x59.gif">
+										</div>
+									</div>
+									<hr>
+								</div>
+								<div ng-model="item" ng-if="item.amazon" class="list-group-item">
+									<a href="{{item.itemUrl}}">
+										<h4>{{item.title}}</h4>
+									</a>
+									<h5>{{item.category.name}} di </h5>
+									<div class="row">
+										<div class="col-md-3">
+											<img src="{{item.mediumImageUrl}}" class="img-responsive img-rounded">
+										</div>
+										<div class="col-md-6">
+											<h6>di {{item.author}} - {{item.publisher}}</h6>
+											<div ng-repeat="offer in item.offers">
+												<li>
+													<p>Prezzo: {{offer.price}}</p>
+												</li>
+												<li>
+													<p>Location: {{item.country}}</p>
+												</li>
+												<li>
+													<p>Stato: {{offer.condition}}</p>
+												</li>
+												<hr>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox" ng-model="item.active">
+													<span class="glyphicon glyphicon-eye-open"></span>
+													Tieni d'occhio
+												</label>
+											</div>
+											<img class="img-responsive img-rounded" src="static/images/a_it_logo_RGB.jpg">
 										</div>
 									</div>
 									<hr>

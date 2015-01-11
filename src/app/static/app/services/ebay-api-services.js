@@ -4,7 +4,7 @@
 		var url = Constants.ebayApiUrl;
 
 		var paginationOutput;
-		var items;
+		var items = [];
 		var error;
 		var currentPage;
 		
@@ -23,9 +23,7 @@
 			.then(function(data){
 				paginationOutput = data.data.paginationOutput;
 				currentPage = paginationOutput.pageNumber;
-				items = _.groupBy(data.data.items, function(item){
-					return item.primaryCategory.categoryName.replace("'", "`");
-				});
+				items = data.data.items;
 				$rootScope.$broadcast('EbayApi:resultReady');
 			}, function(error){
 				console.log('error:', error);

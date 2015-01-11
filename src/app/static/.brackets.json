@@ -17,6 +17,12 @@
         "/home/sergio/virt/keenan/src/app/static/bower_components/bootstrap/js/tab.js",
         "/home/sergio/virt/keenan/src/app/static/app/app.js",
         "/home/sergio/virt/keenan/src/app/static/app/directives/search-directive.js",
-        "home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/data/Data"
+        "home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/data/Data",
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/manipulation/var/rcheckableType.js",
+        "/home/sergio/virt/maalaleel/src/app/static/app/services/amazon-api-service.js",
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/data/var/data_priv.js",
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/data/var/data_user.js",
+        "home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/core/init",
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/event/alias.js"
     ]
 }

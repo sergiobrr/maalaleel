@@ -19,7 +19,10 @@ angular
     'models.ebayItems',
     'models.searches',
 		'services.constants',
-		'services.ebayApi'
+		'services.ebayApi',
+		'services.amazonApi',
+		'services.collectItems',
+		'services.notifications'
   ])
   .config(function ($routeProvider, RestangularProvider, Constants) {
 		RestangularProvider.setBaseUrl(Constants.restangularBaseUrl)

@@ -2,11 +2,11 @@
 
 
 """
-    litisbn config file per eve + ebay
+    litisbn config file per eve + ebay + amazon
 """
 
 import os
-from app.resource_schemas import EbayItemSchema, SearchSchema
+from app.resource_schemas import EbayItemSchema, SearchSchema, AmazonItemSchema
 
 # We want to seamlessy run our API both locally and on Heroku so:
 if os.environ.get('PORT'):
@@ -57,15 +57,31 @@ searches = {
 }
 
 ebayitems = {
-    'item_title': 'oggetto',
+    'item_title': 'libro',
     'schema': EbayItemSchema.schema
+}
+
+amazonitems = {
+    'item_title': 'libro',
+    'schema': AmazonItemSchema.schema
 }
 
 # The DOMAIN dict explains which resources will be available and how they will
 # be accessible to the API consumer.
 DOMAIN = {
     'searches': searches,
-    'ebayitems': ebayitems
+    'ebayitems': ebayitems,
+    'amazonitems': amazonitems
 }
 
+# Ebay api key
 EBAY_APPID = os.environ['EBAY_APP_ID']
+EBAY_BOOKS_CAT = 267
+
+# Amazon credentials sono var dell'env
+AMAZON_CREDENTIALS = {
+    'access_key': os.environ['AWS_ACCESS_KEY_ID'],
+    'secret_key': os.environ['AWS_SECRET_ACCESS_KEY'],
+    'associate_tag': os.environ['AWS_ASSOCIATE_TAG'],
+    'locale': os.environ['AWS_LOCALE']
+}

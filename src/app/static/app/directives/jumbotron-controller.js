@@ -3,11 +3,12 @@
 	
 	angular.module('litisbnApp').controller('JumbotronController', [
 		'EbayApi',
+		'AmazonApi',
 		'usSpinnerService', 
 		'$scope',
 		JumbotronController]);
 	
-	function JumbotronController(EbayApi, usSpinnerService, $scope) {
+	function JumbotronController(EbayApi, AmazonApi, usSpinnerService, $scope) {
 		
 		var vm = this;
 		vm.useFilter = false;
@@ -25,8 +26,9 @@
 				$scope.$parent.itemFilter = vm.itemFilter;
 				EbayApi.callApi(vm.isbn, vm.itemFilter);
 			} else {
-				EbayApi.callApi(vm.isbn, -1);
+				EbayApi.callApi(vm.isbn);
 			};
+			AmazonApi.callApi(vm.isbn);
 			$scope.$parent.isbn = vm.isbn;
 		};
 		

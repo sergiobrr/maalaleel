@@ -128,6 +128,77 @@ class EbayItemSchema():
         }
     }
 
+
+class AmazonItemSchema():
+    schema = {
+        'searchId': {
+            'type': 'objectid',
+            'required': True,
+            'data_relation': {
+                'resource': 'searches',
+                'embeddable': True
+            }
+        },
+        'title': {
+            'type': 'string',
+            'required': True
+        },
+        'author': {
+            'type': 'string',
+            'required': True
+        },
+        'publisher': {
+            'type': 'string',
+            'required': True
+        },
+        'asin': {
+            'type': 'string',
+            'required': True
+        },
+        'country': {
+            'type': 'string',
+            'required': True
+        },
+        'mediumImageUrl': {
+            'type': 'string',
+            'required': True
+        },
+        'smallImageUrl': {
+            'type': 'string',
+            'required': True
+        },
+        'itemUrl': {
+            'type': 'string',
+            'required': True
+        },
+        'offers': {
+            'type': 'dict',
+            'schema': {
+                'collectibleOffer': {
+                    'type': 'dict'
+                },
+                'newOffer': {
+                    'type': 'dict'
+                },
+                'refurbishedOffer': {
+                    'type': 'dict'
+                },
+                'usedOffer': {
+                    'type': 'dict'
+                }
+            }
+        },
+        'price': {
+            'type': 'number'
+        },
+        'active': {
+            'type': 'boolean'
+        },
+        'category': {
+            'type': 'dict'
+        }
+    }
+
 ## Our API will expose two resources (MongoDB collections): 'people' and
 ## 'works'. In order to allow for proper data validation, we define beaviour
 ## and structure.

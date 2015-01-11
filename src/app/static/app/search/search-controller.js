@@ -3,40 +3,38 @@
 	
 	angular.module('litisbnApp').controller('SearchController', [ 
 		'usSpinnerService', 
-		'EbayApi',
-		'EbayItems',
+		'CollectItems',
 		'Searches',
 		'$rootScope',
 		'$scope',
+		'Notifications',
+		'toaster',
 		SearchController
 	]);
 	
-	function SearchController(usSpinnerService, EbayApi, EbayItems, Searches, $rootScope, $scope) {
+	function SearchController(usSpinnerService, CollectItems, Searches, $rootScope, $scope, Notifications, toaster) {
 		var vm = this;
 				
-		$scope.$parent.displayEbay = false;
+		$scope.$parent.displayItems = false;
 
-		vm.showErrors = false;
 		vm.showSaved = true;
 		vm.btnMessage = 'Nascondi ricerche salvate';
 		vm.itemsToSave = [];
-		vm.visiblePannels = {};
 		
-		$rootScope.$on('EbayApi:resultReady', function(){
-			vm.items = EbayApi.getItems();
-			vm.paginationOutput = EbayApi.getPagination();
-			for (var key in vm.items) {
-				vm.visiblePannels[key] = false;
-			};
-			$scope.$parent.displayEbay = true;
-			vm.currentPage = EbayApi.getCurrentPage();
+		$rootScope.$on('CollectItems:itemsReady', function(){
+			vm.items = CollectItems.getItems();
+			if (vm.items.length > 0) {
+				$scope.$parent.displayItems = true;
+			}
 			usSpinnerService.stop('spinner-1');
 		});
 		
+		$rootScope.$on('AmazonApi:errors', function(){
+			Notifications.info('Nessun risultato da Amazon', 'Non ci sono risultati per la ricerca di: ' + $scope.isbn);
+		});
+		
 		$rootScope.$on('EbayApi:errors', function(){
-			vm.error = EbayApi.getError();
-			vm.showErrors = true;
-			usSpinnerService.stop('spinner-1');
+			Notifications.info('Nessun risultato da Ebay', 'Non ci sono risultati per la ricerca di: ' + $scope.isbn);
 		});
 		
 		vm.toggleSaved = function(){
@@ -47,14 +45,6 @@
 				vm.btnMessage = 'Nascondi ricerche salvate';
 				vm.showSaved = true;
 			}
-		};
-		
-		vm.showPanel = function(key){
-			vm.visiblePannels[key] = !vm.visiblePannels[key];
-		};
-		
-		vm.hideErrors = function(){
-			vm.showErrors = false;
 		};
 
 		vm.saveSearch = function(){

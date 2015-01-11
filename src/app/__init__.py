@@ -13,4 +13,7 @@ def create_app():
     from .ebay import ebay as ebay_blueprint
     app.register_blueprint(ebay_blueprint)
 
+    from .amazon import amazon as amazon_blueprint
+    app.register_blueprint(amazon_blueprint)
+
     return app
