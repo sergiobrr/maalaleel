@@ -16,6 +16,7 @@ grequests==0.2.0
 itsdangerous==0.24
 lxml==3.4.1
 pymongo==2.7.1
+python-amazon-product-api==0.2.8
 requests==2.5.1
 simplejson==3.5.3
 wsgiref==0.1.2
