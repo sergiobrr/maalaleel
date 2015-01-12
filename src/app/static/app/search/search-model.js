@@ -1,22 +1,51 @@
 (function(){
 	angular.module('models.searches', ['restangular'])
-	.service('Searches', ['Restangular', function (Restangular) {
+	.service('Searches', ['Restangular', '$q', function (Restangular, $q) {
 		Restangular.extendModel('searches', function(model){
-			model.getEbayItems = function(){
-				return Restangular.all('ebayitems').customGETLIST('', {where: {searchId: this._id}});
+			model.getItems = function(){
+				var deferred = $q.defer();
+				var _id = this._id;
+				var items = [];
+				Restangular.all('ebayitems').customGETLIST('', {where: {searchId: _id}}).then(function(data){
+					items = data;
+				}, function(error){
+					console.log('error', error);
+				})
+				.finally(function(){
+					Restangular.all('amazonitems').customGETLIST('', {where: {searchId: _id}}).then(function(data){
+						items.push.apply(items, data);
+					}, function(error){
+						console.log('error', error);
+					})
+					.finally(function(){
+						deferred.resolve(_.sortBy(items, 'price'));
+					});
+				});
+				return deferred.promise;
 			},
 			model.deleteSearch = function(){
 				Restangular.all('ebayitems').customGETLIST('', {where: {searchId: this._id}}).then(function(data){
-					_.forEach(data, function(item){
+					_.forEeach(data, function(item){
 						Restangular.one('ebayitems', item._id).remove('', {'If-Match': item._etag}).then(function(data){
 						}, function(error){
-							console.log(error);
+							console.log('error', error);
 						});
 					});
+				}, function(error){
+					console.log('error', error);
+				});
+				Restangular.all('amazonitems').customGETLIST('', {where: {searchId: this._id}}).then(function(data){
+					_.forEach(data, function(item){
+						Restangular.one('amazonitems', item._id).remove('', {'If-Match': item._etag}).then(function(data){	
+						}, function(error){
+							console.log('error', error);
+						});
+					});
+				}, function(error){
+					console.log('error', error);
 				});
 				return Restangular.one('searches', this._id).patch({active: false}, '', {'If-Match': this._etag});
 			};
-//			model.ebayItemNum = Restangular.all('ebayitems').customGETLIST('', {where: {searchId: 'this._id'}}).$object;
 			return model;
 		});
 		
@@ -61,6 +90,3 @@
 		}
 	}])
 })();
-
-//Thu, 08 Jan 2015 05:30:38 GMT
-//Thu, 08 Jan 2015 05:32:47 GMT

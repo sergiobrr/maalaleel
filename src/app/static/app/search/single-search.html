@@ -1,9 +1,9 @@
-				<a ng-href="#ricerca/{{search._id}}" class="list-group-item">
+				<a ng-href="#" ng-click="loadSearch($event, search)" class="list-group-item">
 					<h4 class="list-group-item-heading">Parole chiave: {{search.keywords}}</h4>
-					<p class="list-group-item-text text-info">Ci sono {{vm.ebayItemsNum}} oggetti.</p>
+					<p class="list-group-item-text text-info">Ci sono {{vm.itemsNum}} oggetti.</p>
 					<p class="list-group-item-text text-info">
-						Prezzo minimo: {{vm.minPrice.value}} {{vm.minPrice._currencyId}} <br>
-						Prezzo massimo: {{vm.maxPrice.value}} {{vm.maxPrice._currencyId}}
+						Prezzo minimo: {{vm.minPrice.price}} € <br>
+						Prezzo massimo: {{vm.maxPrice.price}} €
 						<button ng-click="vm.deleteSearch(search, $event)" class="btn btn-xs btn-danger">
 							<span class="glyphicon glyphicon-trash"></span>
 							Elimina

@@ -23,6 +23,15 @@
         "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/data/var/data_priv.js",
         "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/data/var/data_user.js",
         "home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/core/init",
-        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/event/alias.js"
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/event/alias.js",
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/event/ajax.js",
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/event/support.js",
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/data/Data.js",
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/wrap.js",
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/outro.js",
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/intro.js",
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/core/init.js",
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/serialize.js",
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/data/accepts.js"
     ]
 }

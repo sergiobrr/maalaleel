@@ -125,6 +125,13 @@ class EbayItemSchema():
         },
         'active': {
             'type': 'boolean'
+        },
+        'price': {
+            'type': 'number'
+        },
+        'ebay': {
+            'type': 'boolean',
+            'required': True
         }
     }
 
@@ -196,6 +203,10 @@ class AmazonItemSchema():
         },
         'category': {
             'type': 'dict'
+        },
+        'amazon': {
+            'type': 'boolean',
+            'required': True
         }
     }
 

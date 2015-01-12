@@ -17,6 +17,7 @@ angular
     'angularSpinner',
 		'restangular',
     'models.ebayItems',
+		'models.amazonItems',
     'models.searches',
 		'services.constants',
 		'services.ebayApi',

@@ -7,12 +7,10 @@
 	function SavedSearchController(EbayItems, $scope) {
 		var vm = this;
 		
-		$scope.search.getEbayItems().then(function(data){
-			vm.ebayItemsNum = data.length;
-			var sellingStatuses = _.pluck(data, 'sellingStatus');
-			sellingStatuses = _.pluck(sellingStatuses, 'currentPrice');
-			vm.maxPrice = _.max(sellingStatuses, 'value');
-			vm.minPrice = _.min(sellingStatuses, 'value');
+		$scope.search.getItems().then(function(data){
+			vm.itemsNum = data.length;
+			vm.maxPrice = _.max(data, 'price');
+			vm.minPrice = _.min(data, 'price');
 		});
 		
 		vm.deleteSearch = function(search, $event){
