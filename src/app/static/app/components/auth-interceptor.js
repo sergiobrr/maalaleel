@@ -10,8 +10,14 @@
 				};
 				return response;
 			},
+			responseError: function(rejection){
+				if(rejection.status === 401 && rejection.config.url !== Constants.loginUrl){
+					$rootScope.$broadcast('authInterceptor:loginRequired');
+				};
+				return $q.reject(rejection);
+			},
 			request: function(config) {
-				if (Auth.isLoggedIn()) {
+				if (Auth.isLoggedIn() && config.url !== Constants.logoutUrl) {
 					var payload = 'Token ' + Auth.getToken();
 					config.headers.Authorization = payload;
 				}

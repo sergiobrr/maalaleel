@@ -41,12 +41,10 @@ angular
 		};
 	});
 	
-	$rootScope.$on('event:auth-loginConfirmed', function(){
-		console.log('utente loggato', Auth.getUser());	
+	$rootScope.$on('event:auth-loginConfirmed', function(){	
 	});
 	
 	$rootScope.$on('event:auth-loginCancelled', function(){
-		console.log('utente sloggato');
 	});
 })
 .config(function ($stateProvider, $urlRouterProvider, RestangularProvider, Constants) {

@@ -14,7 +14,6 @@
 		};
 		
 		var setToken = function(token){
-			console.log('token', token);
 			if (_user) {
 				_user.token = token;
 				_user.role = Constants.ACCESS_LEVELS.user;

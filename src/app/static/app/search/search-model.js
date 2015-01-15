@@ -72,7 +72,6 @@
 			if (typeof itemFilter != undefined) {
 				search.itemfilter = itemFilter;
 			};
-			console.log('ricerca', search);
 			return Restangular.all('searches').post(search);
 		};
 		

@@ -18,3 +18,9 @@ def create_token(username):
     token = generate_password_hash(account['password']).split(':')[2].split('$')[2]
     current_app.data.driver.db['accounts'].update({'_id': account['_id']}, {'$set': {'token': token}}, upsert=False)
     return token
+
+
+def delete_token(username):
+    account = get_account(username)
+    current_app.data.driver.db['accounts'].update({'_id': account['_id']}, {'$set': {'token': ''}}, upsert=False)
+    return 'You have been logged out'

@@ -30,7 +30,6 @@
 		};
 		
 		$rootScope.$on('SeachController:savedSearch', function(){
-			console.log('carico le ricerche');
 			vm.loadSearches();
 		});
 	}

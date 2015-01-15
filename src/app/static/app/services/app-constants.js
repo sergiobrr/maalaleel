@@ -5,6 +5,7 @@
 		amazonApiUrl: 'http://shop.smimemail.net/amazon/',
 		restangularBaseUrl: 'http://shop.smimemail.net/api/',
 		loginUrl: 'http://shop.smimemail.net/login/',
+		logoutUrl: 'http://shop.smimemail.net/logout/',
 		ACCESS_LEVELS: {
 			pub: 1,
 			user: 2
