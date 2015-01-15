@@ -3,10 +3,10 @@
 
 	angular
 	.module("litisbnApp")
-	.directive("litiEbayItem", function () {
+	.directive("litiItem", function () {
 		return {
 			restrict: "E",
-			templateUrl: "static/app/item/ebay-item.html"
+			templateUrl: "static/app/item/item.html"
 		};
 	});    
 }());

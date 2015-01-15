@@ -5,10 +5,13 @@
   .directive("litiJumbotron", function () {
     return {
       restrict: "E",
-      templateUrl: "static/app/partials/jumbotron.html",
-			controllerAs: 'vm',
+      templateUrl: "static/app/jumbotron/jumbotron.html",
 			controller: 'JumbotronController',
-			scope: true
+			scope : {
+				isbn: '=',
+				displayitems: '=',
+				results: '='
+			}
     };
   });    
 }());

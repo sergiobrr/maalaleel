@@ -6,9 +6,9 @@
 	.directive("litiSearch", function () {
 		return {
 			restrict: "E",
-			templateUrl: "static/app/search/single-search.html",
-			controller: "SavedSearchController",
-			controllerAs: "vm",
+			templateUrl: "static/app/saved-search/saved-search-one.html",
+			controller: "SavedSearchDirectiveController",
+			controllerAs: 'vm',
 			scope: true
 		};
 	});   

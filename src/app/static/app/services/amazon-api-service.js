@@ -17,7 +17,6 @@
 				$rootScope.$broadcast('AmazonApi:resultReady');
 			}, function(error){
 				console.log('error:', error);
-				error = error;
 				$rootScope.$broadcast('AmazonApi:errors');
 			});
 		};

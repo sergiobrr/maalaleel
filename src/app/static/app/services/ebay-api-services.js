@@ -27,7 +27,6 @@
 				$rootScope.$broadcast('EbayApi:resultReady');
 			}, function(error){
 				console.log('error:', error);
-				error = error;
 				$rootScope.$broadcast('EbayApi:errors');
 			});
 		};

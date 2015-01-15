@@ -32,6 +32,7 @@
         "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/intro.js",
         "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/core/init.js",
         "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/serialize.js",
-        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/data/accepts.js"
+        "/home/sergio/virt/maalaleel/src/app/static/bower_components/jquery/src/data/accepts.js",
+        "/home/sergio/virt/maalaleel/src/app/static/app/saved-search/saved-search-controller.js"
     ]
 }

@@ -59,7 +59,9 @@
 		});
 					
 		var getItems = function(){
-			return _.sortBy(items, 'price');
+			var _items = angular.copy(items)
+			items = [];
+			return _.sortBy(_items, 'price');
 		}
 		
 		var saveItems = function(search, items){

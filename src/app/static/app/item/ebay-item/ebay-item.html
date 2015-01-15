@@ -1,0 +1,34 @@
+								<div class="list-group-item">
+									<a href="{{item.viewItemURL}}" target="_blank">
+										<h4>{{item.title}}</h4>
+									</a>
+									<h5><p>{{item.primaryCategory.categoryName}}</p></h5>
+									<div class="row">
+										<div class="col-md-3">
+											<img src="{{item.galleryURL}}" class="img-responsive img-rounded">
+										</div>
+										<div class="col-md-6">
+											<li>
+												<p>Prezzo:  {{item.sellingStatus.currentPrice._currencyId}} {{item.sellingStatus.currentPrice.value}}</p>
+											</li>
+											<li>
+												<p>Location: {{item.location}}</p>
+											</li>
+											<li>
+												<p>Stato: {{item.condition.conditionDisplayName}}</p>
+											</li>
+											<hr>
+										</div>
+										<div class="col-md-3">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox" ng-model="item.active">
+													<span class="glyphicon glyphicon-eye-open"></span>
+													Tieni d'occhio
+												</label>
+											</div>
+											<img class="img-responsive img-rounded" src="static/images/Now_144x59.gif">
+										</div>
+									</div>
+									<hr>
+								</div>

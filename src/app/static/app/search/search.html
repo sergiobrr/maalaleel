@@ -1,26 +1,33 @@
-<liti-jumbotron></liti-jumbotron>
-
-<span us-spinner spinner-key="spinner-1"></span>
-
 <div ng-controller="SearchController as vm">
-	<toaster-container></toaster-container>
-	<div class="row">
-		<div class="col-md-3 col-md-offset-1" ng-cloack>
-			<span us-spinner spinner-key="spinner-2"></span>
-			<button class="btn btn-danger btn-block">Ricerche Salvate</button>
-			<div class="list-group">
-				<liti-search ng-repeat="search in vm.savedSearches" search="search"></liti-search>
-			</div>
-		</div>
-		<div class="col-md-7">
-			<div ng-show="displayItems" class="row-marketing animate-show">
-				<div>		
-					<button ng-click="vm.saveSearch()" class="btn btn-default btn-lg btn-block btn-primary">
-						<span class="glyphicon glyphicon-save"></span>
-						Ricorda la ricerca
-					</button>
+	<liti-jumbotron isbn="isbn" displayitems="displayitems" results="results"></liti-jumbotron>
+	<span us-spinner spinner-key="spinner-1"></span>
+
+	<div>
+		<toaster-container></toaster-container>
+		<div class="row">
+			<div class="col-md-3 col-md-offset-1">
+				<span us-spinner spinner-key="spinner-2"></span>
+				<div ng-controller="SavedSearchController as vm">
+					<span us-spinner spinner-key="spinner-2"></span>
+					<button class="btn btn-danger btn-block">Ricerche Salvate</button>
 					<div class="list-group">
-						<liti-ebay-item ng-repeat="item in vm.items" item="item"></liti-ebay-item>
+						<liti-search ng-repeat="search in vm.savedSearches" search="search"></liti-search>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-7">
+				<div>
+					<h1>Display: {{vm.testVar}} - end.</h1>
+					<div ng-show="displayitems" class="row-marketing animate-show">
+						<div>		
+							<button ng-click="vm.saveSearch()" class="btn btn-default btn-lg btn-block btn-primary">
+								<span class="glyphicon glyphicon-save"></span>
+								Ricorda la ricerca
+							</button>
+							<div class="list-group">
+								<liti-item ng-repeat="item in vm.items" item="item"></liti-item>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -29,19 +36,6 @@
 </div>
 
 
-<!--
-					{{vm.paginationOutput.totalEntries}} risultati totali.
-					<ul class="pagination">
-						<li ng-class="{ disabled : vm.currentPage == 1}">
-							<a href="" ng-click="vm.goToPage(vm.currentPage - 1)">«</a>
-						</li>
-						<li ng-repeat="page in vm.getNumber(vm.paginationOutput.totalPages) track by $index" ng-class="{ active : $index+1 == 1, active : vm.currentPage == $index+1 }">
-							<a href="" ng-click="vm.goToPage($index+1)">
-								{{$index+1}}
-							</a>
-						</li>
-						<li  ng-class="{ disabled : vm.currentPage == 99}">
-							<a href="" ng-click="vm.goToPage(vm.currentPage + 1)">»</a>
-						</li>
-					</ul>
--->
+
+
+	
