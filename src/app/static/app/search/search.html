@@ -1,5 +1,5 @@
 <div ng-controller="SearchController as vm">
-	<liti-jumbotron isbn="isbn" displayitems="displayitems" results="results"></liti-jumbotron>
+	<liti-jumbotron isbn="isbn" displayitems="displayitems"></liti-jumbotron>
 	<span us-spinner spinner-key="spinner-1"></span>
 
 	<div>
@@ -17,7 +17,6 @@
 			</div>
 			<div class="col-md-7">
 				<div>
-					<h1>Display: {{vm.testVar}} - end.</h1>
 					<div ng-show="displayitems" class="row-marketing animate-show">
 						<div>		
 							<button ng-click="vm.saveSearch()" class="btn btn-default btn-lg btn-block btn-primary">

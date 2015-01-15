@@ -38,24 +38,15 @@ angular
 				$state.transitionTo('container.search', {}, {reload: false});
 				event.preventDefault();
 			};
-		} else {
-			console.log('event', event);
-			console.log('toState', toState);
-			console.log('toParams', toParams);
-			console.log('fromState', fromState);
-			console.log('fromParams', fromParams);
-			//$state.transitionTo();
 		};
 	});
 	
 	$rootScope.$on('event:auth-loginConfirmed', function(){
-		console.log('utente loggato', Auth.getUser());
-//		$state.go('tab.profile', {}, {reload: false, inherit: false});		
+		console.log('utente loggato', Auth.getUser());	
 	});
 	
 	$rootScope.$on('event:auth-loginCancelled', function(){
 		console.log('utente sloggato');
-		//		$state.go('tab.login');
 	});
 })
 .config(function ($stateProvider, $urlRouterProvider, RestangularProvider, Constants) {

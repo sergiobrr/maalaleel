@@ -17,28 +17,22 @@
 				
 		$scope.displayitems = false;
 		$scope.isbn = 'feltrinelli minaccia';
-		$scope.results = false;
-		vm.testVar = false;
 
 		vm.itemsToSave = [];
 		
-		$rootScope.$on('CollectItems:itemsReady', function(){
-			console.log('Arrivatttiii');
+		$scope.$on('CollectItems:itemsReady', function(){
 			vm.items = CollectItems.getItems();
 			if (vm.items.length > 0) {
-				console.log('display1', $scope.displayitems);
 				$scope.displayitems = true;
-				vm.testVar = true;
-				console.log('display1', $scope.displayitems);
 			}
 			usSpinnerService.stop('spinner-1');
 		});
 		
-		$rootScope.$on('AmazonApi:errors', function(){
+		$scope.$on('AmazonApi:errors', function(){
 			Notifications.info('Nessun risultato da Amazon', 'Non ci sono risultati per la ricerca di: ' + $scope.isbn);
 		});
 		
-		$rootScope.$on('EbayApi:errors', function(){
+		$scope.$on('EbayApi:errors', function(){
 			Notifications.info('Nessun risultato da Ebay', 'Non ci sono risultati per la ricerca di: ' + $scope.isbn);
 		});
 
@@ -72,12 +66,6 @@
 				usSpinnerService.stop('spinner-1');
 			});
 		};
-		
-		$scope.$on('requestContextChanged', function(){
-			console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!!!!!!!!!!!!!!!!!!!!!');
-		})
-		
-		console.log('displayStart', $scope.displayitems);
 	}
 })();
 

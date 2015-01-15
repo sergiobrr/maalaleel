@@ -2,9 +2,9 @@
 	'use strict';
 	
 	angular.module('litisbnApp')
-	.controller('SavedSearchDirectiveController', ['$scope', SavedSearchController]);
+	.controller('SavedSearchDirectiveController', ['$scope', SavedSearchDirectiveController]);
 	
-	function SavedSearchController($scope) {
+	function SavedSearchDirectiveController($scope) {
 		var vm = this;
 		
 		$scope.search.getItems().then(function(data){
